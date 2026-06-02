@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <meta name="theme-color" content="#2d6a6a" />
+    <title>Dental Square | Dr. Prabhjot Kaur | Amritsar</title>
+  </head>
+  <body class="bg-[#f8f4ee] text-[#111111]">
+    <!-- Global Error Overlay for Developer Troubleshooting -->
+    <script>
+      window.addEventListener('error', function(e) {
+        var msg = e.message || '';
+        var file = e.filename || '';
+        if (
+          msg.includes('WebSocket') || 
+          msg.includes('websocket') || 
+          msg.includes('vite') || 
+          msg.includes('Vite') || 
+          file.includes('vite') ||
+          msg.includes('HMR') ||
+          msg.includes('hmr')
+        ) {
+          return; // Ignore benign HMR/WebSocket development errors
+        }
+
+        var errDiv = document.getElementById('debug-error-banner');
+        if (!errDiv) {
+          errDiv = document.createElement('div');
+          errDiv.id = 'debug-error-banner';
+          errDiv.style.position = 'fixed';
+          errDiv.style.top = '0';
+          errDiv.style.left = '0';
+          errDiv.style.right = '0';
+          errDiv.style.background = '#fee2e2';
+          errDiv.style.color = '#991b1b';
+          errDiv.style.borderBottom = '3px solid #f87171';
+          errDiv.style.padding = '16px';
+          errDiv.style.fontFamily = 'monospace';
+          errDiv.style.fontSize = '14px';
+          errDiv.style.zIndex = '999999';
+          errDiv.style.overflowY = 'auto';
+          errDiv.style.maxHeight = '200px';
+          document.body.appendChild(errDiv);
+        }
+        errDiv.innerHTML = '<strong>[Runtime Error Catch]</strong> ' + e.message + ' at ' + (e.filename ? e.filename.split("/").pop() : "") + ':' + e.lineno + ':' + e.colno;
+      });
+      window.addEventListener('unhandledrejection', function(e) {
+        var reasonStr = '';
+        if (e.reason) {
+          reasonStr = e.reason.message || String(e.reason);
+        }
+        if (
+          reasonStr.includes('WebSocket') || 
+          reasonStr.includes('websocket') || 
+          reasonStr.includes('vite') || 
+          reasonStr.includes('Vite') ||
+          reasonStr.includes('HMR') ||
+          reasonStr.includes('hmr') ||
+          reasonStr.includes('network') ||
+          reasonStr.includes('Network') ||
+          reasonStr.includes('close')
+        ) {
+          return; // Ignore benign HMR/WebSocket/connection rejections
+        }
+
+        var errDiv = document.getElementById('debug-error-banner');
+        if (!errDiv) {
+          errDiv = document.createElement('div');
+          errDiv.id = 'debug-error-banner';
+          errDiv.style.position = 'fixed';
+          errDiv.style.top = '0';
+          errDiv.style.left = '0';
+          errDiv.style.right = '0';
+          errDiv.style.background = '#fee2e2';
+          errDiv.style.color = '#991b1b';
+          errDiv.style.borderBottom = '3px solid #f87171';
+          errDiv.style.padding = '16px';
+          errDiv.style.fontFamily = 'monospace';
+          errDiv.style.fontSize = '14px';
+          errDiv.style.zIndex = '999999';
+          errDiv.style.overflowY = 'auto';
+          errDiv.style.maxHeight = '200px';
+          document.body.appendChild(errDiv);
+        }
+        errDiv.innerHTML = '<strong>[Unhandled Promise Rejection]</strong> ' + reasonStr;
+      });
+    </script>
+
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

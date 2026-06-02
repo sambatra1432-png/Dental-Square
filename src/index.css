@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem; /* Offsets for fixed navigation bar */
+}
+
+@theme {
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333333%);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes spin-sideways {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+.animate-spin-sideways {
+  animation: spin-sideways 6s linear infinite;
+  display: inline-block;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+/* Premium Aesthetic Utilities */
+.marquee-mask {
+  mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+}
+
+.premium-gold-gradient {
+  background: linear-gradient(135deg, #b8975a 0%, #dfca9c 40%, #b8975a 100%);
+}
+
+.premium-gold-border {
+  border-image: linear-gradient(135deg, #b8975a, #f7e2bd, #b8975a) 1;
+}
+
+.bg-radial-glow {
+  background: radial-gradient(circle at 50% 50%, rgba(184, 151, 90, 0.1) 0%, transparent 60%);
+}
+
+.hover-shine-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.hover-shine-effect::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 45%,
+    rgba(255, 255, 255, 0.1) 48%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.1) 52%,
+    transparent 55%
+  );
+  transform: rotate(-45deg);
+  transition: none;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hover-shine-effect:hover::after {
+  animation: shine-animation 1.2s ease-out;
+  opacity: 1;
+}
+
+@keyframes shine-animation {
+  0% {
+    left: -100%;
+    top: -100%;
+  }
+  100% {
+    left: 100%;
+    top: 100%;
+  }
+}
+
+/* 3D Flip Card layout utilities */
+.perspective-1000 {
+  perspective: 1000px;
+}
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+
+
